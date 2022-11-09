@@ -25,6 +25,10 @@ function compute(rpnExpression) {
                 case "*":
                     stack.push(stack.pop() * stack.pop());
                     break;
+                case "-":
+                    const temp = stack.pop()
+                    stack.push(stack.pop() - temp);
+                    break;
                 default:
                     stack.push(element);
             }

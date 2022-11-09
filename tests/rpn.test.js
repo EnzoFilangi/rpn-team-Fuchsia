@@ -85,3 +85,11 @@ test("two numbers and a * should give the correct result", (t) => {
 
     t.end();
 })
+
+test("two numbers and a * should give the correct result", (t) => {
+    const rpnExpression = "2 1 -";
+
+    t.equal(compute(rpnExpression), 1, "2 - 1 = 1");
+
+    t.end();
+})
