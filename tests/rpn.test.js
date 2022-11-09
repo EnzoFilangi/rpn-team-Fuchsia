@@ -42,6 +42,20 @@ test("a single number in a string is parsed as a number in a list of length one"
     t.end();
 })
 
+test("two numbers in a string are parsed as numbers in a list of length two", (t) => {
+    const rpnExpression = "1 1";
+
+    const parsedRpnExpression = parseRpnExpression(rpnExpression);
+    const expectedResult = [1, 1];
+
+    t.equal(parsedRpnExpression.length, expectedResult.length);
+    for(let i = 0; i < expectedResult.length; i++){
+        t.equal(parsedRpnExpression[i], expectedResult[i]);
+    }
+
+    t.end();
+})
+
 /*
 test("two numbers and an operand should give the correct result", (t) => {
     const rpnExpression = "1 2 +";
