@@ -22,6 +22,9 @@ function compute(rpnExpression) {
                 case "+":
                     stack.push(stack.pop() + stack.pop());
                     break;
+                case "*":
+                    stack.push(stack.pop() * stack.pop());
+                    break;
                 default:
                     stack.push(element);
             }
