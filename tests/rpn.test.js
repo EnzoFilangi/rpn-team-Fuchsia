@@ -86,10 +86,18 @@ test("two numbers and a * should give the correct result", (t) => {
     t.end();
 })
 
-test("two numbers and a * should give the correct result", (t) => {
+test("two numbers and a - should give the correct result", (t) => {
     const rpnExpression = "2 1 -";
 
     t.equal(compute(rpnExpression), 1, "2 - 1 = 1");
+
+    t.end();
+})
+
+test("two numbers and a / should give the correct result", (t) => {
+    const rpnExpression = "4 2 /";
+
+    t.equal(compute(rpnExpression), 2, "4 / 2 = 2");
 
     t.end();
 })

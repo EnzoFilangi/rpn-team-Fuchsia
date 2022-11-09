@@ -26,8 +26,12 @@ function compute(rpnExpression) {
                     stack.push(stack.pop() * stack.pop());
                     break;
                 case "-":
-                    const temp = stack.pop()
-                    stack.push(stack.pop() - temp);
+                    const tempMinus = stack.pop();
+                    stack.push(stack.pop() - tempMinus);
+                    break;
+                case "/":
+                    const tempDivide = stack.pop();
+                    stack.push(stack.pop() / tempDivide);
                     break;
                 default:
                     stack.push(element);
