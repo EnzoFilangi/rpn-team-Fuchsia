@@ -70,11 +70,10 @@ test("numbers and operands are parsed properly", (t) => {
     t.end();
 })
 
-/*
 test("two numbers and an operand should give the correct result", (t) => {
     const rpnExpression = "1 2 +";
 
     t.equal(compute(rpnExpression), 3, "1 + 2 = 3");
 
     t.end();
-})*/
+})

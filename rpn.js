@@ -14,7 +14,20 @@ function compute(rpnExpression) {
     if(!rpnExpression){
         return 0;
     } else {
-        return Number.parseInt(rpnExpression);
+        const stack = [];
+        const parsedExpression = parseRpnExpression(rpnExpression);
+
+        parsedExpression.forEach(element => {
+            switch (element) {
+                case "+":
+                    stack.push(stack.pop() + stack.pop());
+                    break;
+                default:
+                    stack.push(element);
+            }
+        });
+
+        return stack[0];
     }
 
     
