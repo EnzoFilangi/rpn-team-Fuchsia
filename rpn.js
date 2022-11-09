@@ -1,48 +1,45 @@
 
-function parseRpnExpression(rpnExpression){
-    return rpnExpression.split(" ")
-        // Parse numbers and leave operands as strings
-        .map((elem) => {
-            const parsed = Number.parseInt(elem);
-            return isNaN(parsed) ? elem : parsed;
-        })
-        // Remove empty string if there are some
-        .filter((elem) => elem);
+function parseRpnExpression (rpnExpression) {
+  return rpnExpression.split(' ')
+  // Parse numbers and leave operands as strings
+    .map((elem) => {
+      const parsed = Number.parseInt(elem)
+      return isNaN(parsed) ? elem : parsed
+    })
+  // Remove empty string if there are some
+    .filter((elem) => elem)
 }
 
-function compute(rpnExpression) {
-    if(!rpnExpression){
-        return 0;
-    } else {
-        const stack = [];
-        const parsedExpression = parseRpnExpression(rpnExpression);
+function compute (rpnExpression) {
+  if (!rpnExpression) {
+    return 0
+  } else {
+    const stack = []
+    const parsedExpression = parseRpnExpression(rpnExpression)
 
-        parsedExpression.forEach(element => {
-            switch (element) {
-                case "+":
-                    stack.push(stack.pop() + stack.pop());
-                    break;
-                case "*":
-                    stack.push(stack.pop() * stack.pop());
-                    break;
-                case "-":
-                    const tempMinus = stack.pop();
-                    stack.push(stack.pop() - tempMinus);
-                    break;
-                case "/":
-                    const tempDivide = stack.pop();
-                    stack.push(stack.pop() / tempDivide);
-                    break;
-                default:
-                    stack.push(element);
-            }
-        });
+    parsedExpression.forEach(element => {
+      switch (element) {
+        case '+':
+          stack.push(stack.pop() + stack.pop())
+          break
+        case '*':
+          stack.push(stack.pop() * stack.pop())
+          break
+        case '-':
+          const tempMinus = stack.pop()
+          stack.push(stack.pop() - tempMinus)
+          break
+        case '/':
+          const tempDivide = stack.pop()
+          stack.push(stack.pop() / tempDivide)
+          break
+        default:
+          stack.push(element)
+      }
+    })
 
-        return stack[0];
-    }
-
-    
+    return stack[0]
+  }
 }
 
-
-module.exports = {compute, parseRpnExpression}
+module.exports = { compute, parseRpnExpression }
