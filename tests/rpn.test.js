@@ -10,3 +10,12 @@ test("empty string returns 0", function(t) {
 
     t.end();
 });
+
+test("a single number in the expression should equal that number", (t) => {
+    const rpnExpression = "1";
+
+    t.equal(compute(rpnExpression), 1, "Number in the expression should equal itself");
+
+    t.end();
+})
+
